@@ -1,0 +1,225 @@
+\documentclass[12pt,a4paper,twoside]{report}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{fancyhdr, lastpage}
+\pagestyle{fancy}
+\fancyfoot{}
+
+\usepackage{xargs}
+\usepackage[pdftex,dvipsnames]{xcolor}
+\usepackage{setspace}
+\doublespacing
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,mathtools}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+%\newcommand{\incfig}[1]{%
+%	\def\svgwidth{\columnwidth}
+%	\import{./figures/}{#1.pdf_tex}
+%}
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+\usepackage{float}
+
+%Options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+%\usepackage[Glenn]{fncychap}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[framemethod=TikZ]{mdframed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Theorem
+\newcounter{theo}[section] \setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+\newenvironment{theo}[2][]{%
+\refstepcounter{theo}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Theorem~\thetheo};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Theorem~\thetheo:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=blue!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Result
+\newenvironment{rslt}[1][]{%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Result};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Result:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=blue!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{\end{mdframed}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Lemma
+\newcounter{lem}[section] \setcounter{lem}{0}
+\renewcommand{\thelem}{\arabic{section}.\arabic{lem}}
+\newenvironment{lem}[2][]{%
+\refstepcounter{lem}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=green!20]
+{\strut Lemma~\thelem};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=green!20]
+{\strut Lemma~\thelem:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=green!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Proof
+\newenvironment{prf}[1][]{%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=red!20]
+{\strut Proof};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=red!20]
+{\strut Proof:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=red!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{$\null\hfill \blacksquare$\end{mdframed}}
+
+%\newcounter{prf}[section]\setcounter{prf}{0}
+%\renewcommand{\theprf}{\arabic{section}.\arabic{prf}}
+%\newenvironment{prf}[2][]{%
+%\refstepcounter{prf}%
+%\ifstrempty{#1}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=red!20]
+%{\strut Proof~\theprf};}}
+%}%
+%{\mdfsetup{%
+%frametitle={%
+%\tikz[baseline=(current bounding box.east),outer sep=0pt]
+%\node[anchor=east,rectangle,fill=red!20]
+%{\strut Proof~\theprf:~#1};}}%
+%}%
+%\mdfsetup{innertopmargin=10pt,linecolor=red!20,%
+%linewidth=2pt,topline=true,%
+%frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+%}
+%\begin{mdframed}[]\relax%
+%\label{#2}}{\qed\end{mdframed}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%SECTION FORMATTING
+\usepackage{tikz}
+\usepackage[explicit]{titlesec}
+\titleformat{\chapter}
+{\scshape\bfseries\LARGE}{\thechapter}{1pt}
+{\begin{tikzpicture}
+    \node[yshift=-3cm] at (current page.north west)
+      {\begin{tikzpicture}
+        \draw[color=Red!40, fill=Red!40] (0.02,0) rectangle
+	    (.7\paperwidth, 0.1);
+        \node[yshift=1.9ex, anchor=west, rectangle, color=Red!40, fill=Red!40]
+              {\color{black}#1};
+       \end{tikzpicture}
+      };
+   \end{tikzpicture}
+} %not sure why my compiler doesn't like this but the parentheses is necessary
+\titlespacing*{\chapter}{0pt}{30pt}{-10pt}
+
+\titleformat{\section}
+{\Large}{\thesection}{1pt}
+{\begin{tikzpicture}
+    \node[yshift=-3cm] at (current page.north west)
+      {\begin{tikzpicture}
+        \draw[color=Blue!20, fill=Blue!20] (0.02,0) rectangle
+	    (.7\paperwidth, 0.1);
+        \node[yshift=1.9ex, anchor=west, rectangle, color=Blue!20, fill=Blue!20]
+              {\color{black}#1};
+       \end{tikzpicture}
+      };
+   \end{tikzpicture}
+} %not sure why my comiler doesn't like this but the parentheses is necessary
+\titlespacing*{\section}{0pt}{30pt}{-10pt}
+
+\usepackage[none]{hyphenat}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+%\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+%\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+%\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+%\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+%\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{hyperref}
+
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+\renewcommand\P{\ensuremath{\mathcal{P}}}
+
+\pdfsuppresswarningpagegroup=1
+

@@ -1,4 +1,4 @@
-\input{$HOME/uni/master_1/semester_5/preamble}
+\input{preamble}
 
 \title{Chapter 1}
 \author{Logan Rosentreter}
@@ -7,39 +7,6 @@
 \rhead{Rosentreter, \thepage\ of \pageref{LastPage}}
 \lhead{STAT 480} %class
 \chead{Chapter 1} %document
-
-\usepackage{tikz}
-\usepackage[explicit]{titlesec}
-\titleformat{\chapter}
-{\LARGE}{\thechapter}{1pt}
-{\begin{tikzpicture}
-    \node[yshift=-3cm] at (current page.north west)
-      {\begin{tikzpicture}
-        \draw[color=Red!40, fill=Red!40] (0.02,0) rectangle
-	    (.7\paperwidth, 0.1);
-        \node[yshift=1.9ex, anchor=west, rectangle, color=Red!40, fill=Red!40]
-              {\color{black}#1};
-       \end{tikzpicture}
-      };
-   \end{tikzpicture}
-} %not sure why my compiler doesn't like this but the parentheses is necessary
-\titlespacing*{\chapter}{0pt}{30pt}{-10pt}
-
-\titleformat{\section}
-{\Large}{\thesection}{1pt}
-{\begin{tikzpicture}
-    \node[yshift=-3cm] at (current page.north west)
-      {\begin{tikzpicture}
-        \draw[color=Blue!20, fill=Blue!20] (0.02,0) rectangle
-	    (.7\paperwidth, 0.1);
-        \node[yshift=1.9ex, anchor=west, rectangle, color=Blue!20, fill=Blue!20]
-              {\color{black}#1};
-       \end{tikzpicture}
-      };
-   \end{tikzpicture}
-} %not sure why my comiler doesn't like this but the parentheses is necessary
-\titlespacing*{\section}{0pt}{30pt}{-10pt}
-
 
 \begin{document}
 \maketitle\thispagestyle{fancy}

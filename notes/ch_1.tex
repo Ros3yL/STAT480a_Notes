@@ -9,21 +9,20 @@
 \chead{Chapter 1} %document
 
 \usepackage{tikz}
-\usepackage{kpfonts}
 \usepackage[explicit]{titlesec}
 \titleformat{\chapter}
 {\LARGE}{\thechapter}{1pt}
 {\begin{tikzpicture}
     \node[yshift=-3cm] at (current page.north west)
       {\begin{tikzpicture}
-        \draw[color=Red!20, fill=Red!20] (0.02,0) rectangle
+        \draw[color=Red!40, fill=Red!40] (0.02,0) rectangle
 	    (.7\paperwidth, 0.1);
-        \node[yshift=1.9ex, anchor=west, rectangle, color=Red!20, fill=Red!20]
+        \node[yshift=1.9ex, anchor=west, rectangle, color=Red!40, fill=Red!40]
               {\color{black}#1};
        \end{tikzpicture}
       };
    \end{tikzpicture}
-} %not sure why my comiler doesn't like this but the parentheses is necessary
+} %not sure why my compiler doesn't like this but the parentheses is necessary
 \titlespacing*{\chapter}{0pt}{30pt}{-10pt}
 
 \titleformat{\section}

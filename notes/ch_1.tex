@@ -127,10 +127,70 @@ $A$ event, $A \subseteq S$
 $B = $ set of all possible events
 
 $P  = $ probability set function if 
+
 \begin{tikzpicture}
-    \draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (5.9,5.9);
+    \node at (0,1) {};
+    \node at (1.1,0) {$P : \mathcal{B} \to [0:1]$};
+    \draw[very thick, ->] (0,-1) -- (0,-0.5);
+    \node at (1,-1.5) {domain is sets};
+    \node at (0,-2.5) {range $ = [0,1]$};
 \end{tikzpicture}
-\[
-    P : \mathcal{B} \to [0:1]
-\] 
+
+\subsection*{Kolmogrov's axioms}
+
+\begin{enumerate}
+    \item $P(A) \ge 0 \text{ for all } A \in B$ 
+    \item $P(S) = 1$
+    \item if $A_1, A_2, \ldots \leftarrow \mathcal{B}$ are mutually exclusive, then
+	\[
+	    P(\bigcup_{i = 1}^\infty A_i) = \sum\limits_{i=1}^{\infty} A_i
+	\] 
+\end{enumerate}
+
+\subsection*{Remark}
+
+$P(A)$ is the probability of $A$ 
+
+\begin{rslt}
+    $P(\O) = 0$
+\end{rslt}
+\begin{prf}
+\begin{align*}
+    S \cap \O &= \O \\
+    P(S \cap \O) &= P(S) + P(\O) \\
+    P(S) &= P(S) + P(\O) \\
+    P(\O) &= 0
+\end{align*}
+\end{prf}
+\section*{Discrete Sample Space}
+
+Assign probability to single outcomes (elementary / simple event)
+
+i.e.
+ \begin{align*}
+     P( \{ e_i \} ) &= P_i \\
+     P_i &\ge 0 \text{ for all } i \\
+     \sum\limits_{i=1}^{\infty} P_i &= 1 = P(S) \\
+     P(A) &= \sum\limits_{e_i \in A} P( \{ e_i \} )
+\end{align*}
+
+e.g. Toss a coin 3 times
+\begin{align*}
+    P( \{ HHH \} ) &= P( \{ HHT \} ) = \ldots = 1/8 \\
+    A &: \text{ At least 2 heads} \\
+    A &= \{ HHH, HHT, HTH, THH \} \\
+    P(A) &= P( \{ HHH \} ) + P( \{ HHT \} ) + \ldots = 1/8 + 1/8 + \ldots + 1/8 = 1/2
+\end{align*}
+
+\section*{Equal Probability Model (Classical) <Discrete Space>}
+Discrete Sample Space $S$ contain $N$ outcomes $(N < \infty)$ each outcome is equally likely
+
+i.e.
+\begin{align*}
+    P_1 &= P_2 = \ldots = P_n \\
+    P_i &> 0 \\
+    \sum P_i &= 1, \text{ then } \\
+    P_i = 1/N \text{ for all } i \\
+P(A) &= \sum\limits_{i=1}^{n(A)} 1/N = \frac{n(A)}{N} \text{ where } n(A) = \text{ \# of outcomes in } A \\
+\end{align*}
 \end{document}

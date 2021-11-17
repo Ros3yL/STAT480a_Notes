@@ -29,7 +29,7 @@
 
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
-    \import{./figures/}{#2.pdf_tex}
+    \import{./figs/}{#2.pdf_tex}
 }
 \usepackage{float}
 
@@ -170,6 +170,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %SECTION FORMATTING
 \usepackage{tikz}
 \usepackage[explicit]{titlesec}
+
 \titleformat{\chapter}
 {\scshape\bfseries\LARGE}{\thechapter}{1pt}
 {\begin{tikzpicture}
@@ -192,7 +193,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
       {\begin{tikzpicture}
         \draw[color=Blue!20, fill=Blue!20] (0.02,0) rectangle
 	    (.7\paperwidth, 0.1);
-        \node[yshift=1.9ex, anchor=west, rectangle, color=Blue!20, fill=Blue!20]
+        \node[yshift=1.9ex, anchor=west, rectangle, color=Blue!20, fill=Blue!20, text width=0.88\textwidth]
               {\color{black}#1};
        \end{tikzpicture}
       };
